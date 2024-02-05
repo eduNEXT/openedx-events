@@ -462,4 +462,4 @@ class ORASubmissionData:
     """
 
     id = attr.ib(type=str)
-    file_downloads = attr.ib(type=List[dict])
+    file_downloads = attr.ib(type=List[dict], factory=list)

@@ -17,12 +17,12 @@ from openedx_events.learning.data import (
     CourseNotificationData,
     DiscussionThreadData,
     ExamAttemptData,
+    ORASubmissionData,
     PersistentCourseGradeData,
     ProgramCertificateData,
     UserData,
     UserNotificationData,
     XBlockSkillVerificationData,
-    ORASubmissionData,
 )
 from openedx_events.tooling import OpenEdxPublicSignal
 
