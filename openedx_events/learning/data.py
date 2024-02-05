@@ -487,3 +487,22 @@ class CourseNotificationData:
     content_url = attr.ib(type=str)
     content_context = attr.ib(type=dict, factory=dict)
     audience_filters = attr.ib(type=dict, factory=dict)
+
+
+@attr.s(frozen=True)
+class ORASubmissionData:
+    """
+    Attributes defined to represent event when a user submits an ORA assignment.
+
+    Arguments:
+        id (str): identifier of the ORA submission.
+        file_downloads (List[dict]): list of related files in the ORA submission. Each dict
+            contains the following keys:
+                * download_url (str): URL to download the file.
+                * description (str): Description of the file.
+                * name (str): Name of the file.
+                * size (int): Size of the file.
+    """
+
+    id = attr.ib(type=str)
+    file_downloads = attr.ib(type=List[dict])

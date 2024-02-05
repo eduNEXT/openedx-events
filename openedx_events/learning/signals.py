@@ -23,6 +23,7 @@ from openedx_events.learning.data import (
     UserData,
     UserNotificationData,
     XBlockSkillVerificationData,
+    ORASubmissionData,
 )
 from openedx_events.tooling import OpenEdxPublicSignal
 
@@ -349,4 +350,17 @@ COURSE_NOTIFICATION_REQUESTED = OpenEdxPublicSignal(
     data={
         "course_notification_data": CourseNotificationData,
     }
+)
+
+
+# .. event_type: org.openedx.learning.ora.submission.created.v1
+# .. event_name: ORA_SUBMISSION_CREATED
+# .. event_description: Emitted when a new ORA submission is created
+# .. event_data: ORASubmissionData
+# Warning: This event is currently incompatible with the event bus, list/dict cannot be serialized yet
+ORA_SUBMISSION_CREATED = OpenEdxPublicSignal(
+    event_type="org.openedx.learning.ora.submission.created.v1",
+    data={
+        "submission": ORASubmissionData,
+    },
 )
