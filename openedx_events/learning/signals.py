@@ -27,6 +27,7 @@ from openedx_events.learning.data import (
     UserNotificationData,
     VerificationAttemptData,
     XBlockSkillVerificationData,
+    ComplexTypesData,
 )
 from openedx_events.tooling import OpenEdxPublicSignal
 
@@ -489,5 +490,13 @@ IDV_ATTEMPT_DENIED = OpenEdxPublicSignal(
     event_type="org.openedx.learning.idv_attempt.denied.v1",
     data={
         "idv_attempt": VerificationAttemptData,
+    }
+)
+
+
+COMPLEX_TYPES = OpenEdxPublicSignal(
+    event_type="org.openedx.learning.complex.types.v1",
+    data={
+        "complex_types": ComplexTypesData
     }
 )

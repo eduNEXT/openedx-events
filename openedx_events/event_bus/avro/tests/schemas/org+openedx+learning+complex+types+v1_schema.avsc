@@ -1,0 +1,134 @@
+{
+  "name": "CloudEvent",
+  "type": "record",
+  "doc": "Avro Event Format for CloudEvents created with openedx_events/schema",
+  "fields": [
+    {
+      "name": "complex_types",
+      "type": {
+        "name": "ComplexTypesData",
+        "type": "record",
+        "fields": [
+          {
+            "name": "list_of_dicts",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "map",
+                "values": "string"
+              }
+            }
+          },
+          {
+            "name": "list_of_lists",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": "long"
+              }
+            }
+          },
+          {
+            "name": "list_of_attrs",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "UserData",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "long"
+                  },
+                  {
+                    "name": "is_active",
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "pii",
+                    "type": {
+                      "name": "UserPersonalData",
+                      "type": "record",
+                      "fields": [
+                        {
+                          "name": "username",
+                          "type": "string"
+                        },
+                        {
+                          "name": "email",
+                          "type": "string"
+                        },
+                        {
+                          "name": "name",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "dict_of_lists",
+            "type": {
+              "type": "map",
+              "values": {
+                "type": "array",
+                "items": "long"
+              }
+            }
+          },
+          {
+            "name": "dict_of_dicts",
+            "type": {
+              "type": "map",
+              "values": {
+                "type": "map",
+                "values": "string"
+              }
+            }
+          },
+          {
+            "name": "dict_of_attrs",
+            "type": {
+              "type": "map",
+              "values": {
+                "name": "CourseData",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "course_key",
+                    "type": "string"
+                  },
+                  {
+                    "name": "display_name",
+                    "type": "string"
+                  },
+                  {
+                    "name": "start",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "end",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "default": null
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "namespace": "org.openedx.learning.complex.types.v1"
+}
